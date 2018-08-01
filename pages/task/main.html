@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../dist/css/spop.min.css">
+    <link rel="stylesheet" href="../../dist/css/task.css">
+    <link rel="stylesheet" href="../../dist/css/jquery.cxcalendar.css">
+    <style>.pagination>li>a{padding: 4px 10px;}</style>
+    
+</head>
+<body class="hold-transition skin-blue sidebar-collapse">
+    <div id="repeatSet" data-id="2b4afc3ebc41432b9abd26b5e237051c">
+                                    <i class="fa fa-cogs" style="font-size: 17px;margin-right: 10px;"></i>设置重复任务
+                                </div>
+<!--设置重复-->
+<div class="modal fade" id="setRepeat">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:660px;border-radius: 5px;margin-top: 100px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">设置重复任务</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <span class="col-md-3" style="line-height: 36px; padding: 0;text-align: center;font-size: 15px;">重复方式</span>
+                        <select class="form-control col-md-9" id="repeat_mode" >
+                                <option value="从不重复" selected>从不重复</option>
+                                <option value="天">天</option>
+                                <option value="周">周</option>
+                                <option value="月">月</option>
+                                <option value="年">年</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 frequency">
+                        <span class="col-md-3" style="line-height: 36px; padding: 0;text-align: center;">重复频率</span>
+                        <input type="text" class="form-control col-md-8" id="repeat_frequency" style="width:80px;"/>
+                        <div class="col-md-1 day"><span></span></div>
+                    </div>
+                </div>
+                <div class="col-md-12 frequencyWeek" style="margin-top: 10px;">
+                    <div class="col-md-2" style="text-align: right;">
+                        <span style="line-height: 37px;font-size: 15px;">重复时间</span>
+                    </div>
+                    <div class="col-md-10 week" style="text-align: right;line-height: 37px;">
+                        <div class="col-md-1" style="width:35px;height:25px;padding:0;margin-right: 20px;">
+                            <input type="checkbox" class="one" value="一" style="width:17px;height:17px;float: left;">
+                            <span style="display: block; margin-top: -6px;">一</span>
+                        </div> 
+                        <div class="col-md-1" style="width:35px;height:25px;padding:0;margin-right: 20px;">
+                            <input type="checkbox" class="two" value="二"  style="width:17px;height:17px;float: left;">
+                            <span style="display: block; margin-top: -6px;">二</span>
+                        </div>
+                        <div class="col-md-1" style="width:35px;height:25px;padding:0;margin-right: 20px;">
+                            <input type="checkbox" class="three" value="三"  style="width:17px;height:17px;float: left;">
+                            <span style="display: block; margin-top: -6px;">三</span>
+                        </div> 
+                        <div class="col-md-1" style="width:35px;height:25px;padding:0;margin-right: 20px;">
+                            <input type="checkbox" class="four" value="四"  style="width:17px;height:17px;float: left;">
+                            <span style="display: block; margin-top: -6px;">四</span>
+                        </div> 
+                        <div class="col-md-1" style="width:35px;height:25px;padding:0;margin-right: 20px;">
+                            <input type="checkbox" class="five" value="五"  style="width:17px;height:17px;float: left;">
+                            <span style="display: block; margin-top: -6px;">五</span>
+                        </div> 
+                        <div class="col-md-1" style="width:35px;height:25px;padding:0;margin-right: 20px;">
+                            <input type="checkbox" class="six" value="六"  style="width:17px;height:17px;float: left;">
+                            <span style="display: block; margin-top: -6px;">六</span>
+                        </div> 
+                        <div class="col-md-1" style="width:35px;height:25px;padding:0;margin-right: 20px;">
+                            <input type="checkbox" class="seven" value="日"  style="width:17px;height:17px;float: left;">
+                            <span style="display: block; margin-top: -6px;">日</span>
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-md-12 frequencyday" style="padding: 10px;">
+                    <div class="col-md-2" style="text-align: right;">
+                        <span style="line-height: 37px;font-size: 15px;">重复时间</span>
+                    </div>
+                    <div class="col-md-10" style="padding:0;text-align: right;">
+                        <select class="form-control" id="monthDays" style="width: 390px;border-radius: 5px;"><!--动态添加下拉框--></select>
+                    </div>
+                </div>
+                <div class="col-md-12 end">
+                    <div class="col-md-2" style="text-align: right;">
+                        <span style="line-height: 37px;font-size: 15px;">结束时间</span>
+                    </div>
+                    <div class="col-md-10" style="padding:0;">
+                        <div class="col-md-12" style="padding:0;">
+                            <label class="col-md-12" style="padding:5px 0;">
+                                <input type="radio" class="col-md-2 active" name="endway" id="never" value="不结束" style="width: 20px;height: 20px;">
+                                <div class="col-md-4" style="padding: 0;padding-left: 15px;line-height: 25px;font-size: 15px;">
+                                    <span style="color: #9e9999;">从不</span>
+                                </div>   
+                            </label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control col-md-2" id="endDate" value="不结束" style="width: 100px;border-radius: 5px;display:none;">
+                            </div>
+                            <div class="col-md-12" style="padding:0;margin: 5px 0;">
+                                <label class="col-md-3" style="padding:0;margin-top: 5px;">
+                                    <input type="radio" class="col-md-2" name="endway" id="repetition" style="width: 20px;height: 20px;">
+                                    <div class="col-md-4" style="width:100px;padding: 0;padding-left: 15px;line-height: 25px;font-size: 15px;">
+                                        <span style="color: #9e9999;">重复</span>
+                                    </div>   
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control col-md-2 repetitionNum" id="endDate" style="width: 100px;border-radius: 5px;">
+                                    <span style="line-height: 35px;margin-left: 5px;">次以后</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="padding:0;margin: 5px 0;">
+                                <label class="col-md-3" style="padding:0;margin-top: 5px;">
+                                    <input type="radio" name="endway" class="col-md-2" id="endTime" style="width: 20px;height: 20px;">
+                                    <div class="col-md-4" style="width:100px;padding: 0;padding-left: 15px;line-height: 25px;font-size: 15px;">
+                                        <span style="color: #9e9999;">结束日期</span>
+                                    </div>   
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control col-md-2 datepicker3 endDate" id="endDate" placeholder="截止日期" id="" style="width: 100px;border-radius: 5px;">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-id="" data-taskId="" data-companyId="" id="setRepeatAdd">保存</button>
+            </div>    
+        </div>
+    </div>
+</div>
+<script src="../../dist/js/iquery.js"></script>
+<script src="../../dist/js/spop.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../dist/js/item.js"></script>
+</body>
+</html>
